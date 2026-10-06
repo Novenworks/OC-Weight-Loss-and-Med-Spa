@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const BOOK =
   "https://ocweightloss.zenoti.com/webstoreNew/31118c19-f989-4281-8c77-29e853eabc00?serviceid=4053b372-324c-4a74-a200-73aa89fbf7eb";
 const PHONE = "tel:+19494160950";
@@ -66,13 +64,15 @@ function Hero() {
           <p className="mt-4 text-[12px] tracking-wide text-[var(--ink-soft)]">Free consultation + InBody scan</p>
         </div>
         <div className="relative md:col-span-5">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] bg-[var(--paper-2)]">
-            <Image src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80" alt="Clinician consultation in a calm medical setting" fill className="object-cover" sizes="(max-width: 768px) 100vw, 420px" priority />
-          </div>
-          <div className="absolute -bottom-4 left-4 right-4 rounded-2xl border border-[var(--line)] bg-[var(--paper)] p-4 shadow-sm md:left-auto md:right-[-12px] md:w-56">
-            <p className="text-[10px] font-semibold tracking-[0.18em] text-[var(--copper)]">FIRST VISIT</p>
-            <p className="mt-1 text-sm font-medium">Free consult + InBody 580</p>
-            <p className="mt-1 text-xs text-[var(--ink-soft)]">Written plan. Written price. No obligation.</p>
+          <div className="rounded-[28px] border border-[var(--line)] bg-[var(--paper-2)] p-8 md:p-10">
+            <p className="text-[10px] font-semibold tracking-[0.18em] text-[var(--copper)]">YOUR FIRST VISIT</p>
+            <p className="serif mt-3 text-2xl leading-snug tracking-tight">Free consultation + InBody 580 scan</p>
+            <ul className="mt-6 space-y-3 text-sm text-[var(--ink-soft)]">
+              <li className="border-l-2 border-[var(--copper)] pl-4">About thirty minutes with a licensed provider</li>
+              <li className="border-l-2 border-[var(--copper)] pl-4">A baseline scan that separates fat, muscle and water</li>
+              <li className="border-l-2 border-[var(--copper)] pl-4">A written plan and written price before anything starts</li>
+              <li className="border-l-2 border-[var(--copper)] pl-4">No obligation to enroll</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@ function Trust() {
     <section className="border-y border-[var(--line)] bg-[var(--paper-2)]">
       <div className="mx-auto grid max-w-6xl gap-8 px-5 py-10 sm:grid-cols-2 lg:grid-cols-4">
         <TrustItem label="Every visit" value="Lindsay Short, NP-BC" />
-        <TrustItem label="Serving Orange County" value="4+ years" note="Business-published" />
+        <TrustItem label="Serving Orange County" value="4+ years" />
         <TrustItem label="First visit" value="Free consult + InBody" />
         <TrustItem label="Patient reviews" value="4.9 Google · 4.8 Yelp" note="196 Google · 333 Yelp" />
       </div>
@@ -134,23 +134,22 @@ function Starters() {
         <p className="text-[11px] font-semibold tracking-[0.22em] text-[#d7b196]">STARTER PROGRAMS</p>
         <h2 className="serif mt-3 max-w-[18ch] text-3xl tracking-tight md:text-4xl">A course of care, not a box of medication.</h2>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
-          <ProgramCard name="Semaglutide" weeks="8 weeks" price="$700" />
-          <ProgramCard name="Tirzepatide" weeks="8 weeks" price="$800" />
+          <ProgramCard name="Semaglutide" weeks="8 weeks" />
+          <ProgramCard name="Tirzepatide" weeks="8 weeks" />
         </div>
-        <p className="mt-6 text-sm text-white/60">Includes medication, visits and monitoring. Ongoing cost varies by prescribed dose.</p>
+        <p className="mt-6 text-sm text-white/60">Medication, visits and monitoring are included. Your price depends on the medication and dose your provider prescribes, and we confirm it in writing at your consultation before anything starts.</p>
         <a href={BOOK} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex rounded-full bg-[var(--paper)] px-6 py-3 text-[13px] font-semibold text-[var(--ink)] hover:bg-white">Book free consultation</a>
       </div>
     </section>
   );
 }
 
-function ProgramCard({ name, weeks, price }: { name: string; weeks: string; price: string }) {
+function ProgramCard({ name, weeks }: { name: string; weeks: string }) {
   return (
     <div className="rounded-3xl border border-white/12 bg-white/5 p-8">
       <p className="text-[11px] tracking-[0.18em] text-[#d7b196]">{weeks.toUpperCase()}</p>
       <h3 className="mt-2 text-2xl font-medium">{name}</h3>
-      <p className="serif mt-4 text-4xl">{price}</p>
-      <p className="mt-3 text-sm text-white/65">Medication, clinician visits and monitoring across eight weeks.</p>
+      <p className="mt-4 text-sm text-white/65">Medication, clinician visits, repeat InBody scans and dose adjustment across eight weeks. Whether this medication is right for you is decided by your provider after your assessment.</p>
     </div>
   );
 }
@@ -196,8 +195,9 @@ function Provider() {
   return (
     <section id="provider" className="mx-auto max-w-6xl px-5 py-20">
       <div className="grid items-center gap-12 md:grid-cols-12">
-        <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] bg-[var(--paper-2)] md:col-span-5">
-          <Image src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1200&q=80" alt="Portrait of a female clinician in a medical setting" fill className="object-cover" sizes="(max-width: 768px) 100vw, 420px" />
+        <div className="md:col-span-5">
+          <p className="serif text-[5rem] leading-none text-[var(--copper)]/70 md:text-[7rem]">NP-BC</p>
+          <p className="mt-3 text-sm text-[var(--ink-soft)]">Board-certified Nurse Practitioner</p>
         </div>
         <div className="md:col-span-7">
           <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--copper)]">YOUR PROVIDER</p>

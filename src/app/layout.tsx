@@ -7,6 +7,7 @@ const fraunces = Fraunces({ variable: "--font-fraunces", subsets: ["latin"], dis
 
 export const metadata: Metadata = {
   title: "OC Weight Loss & Med Spa | Mission Viejo",
+  robots: { index: false, follow: false },
   description: "Clinician-led medical weight management in Mission Viejo. Free consultation and InBody scan with Lindsay Short, NP-BC.",
 };
 
